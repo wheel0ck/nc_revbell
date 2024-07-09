@@ -1,30 +1,54 @@
-# React + TypeScript + Vite
+# Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Introduction
 
-Currently, two official plugins are available:
+Cette application web permet de consulter les données météorologiques d'une ville. Vous pouvez visualiser les prévisions météo pour les 7 prochains jours et les détails heure par heure pour une journée spécifique. L'application est développée en utilisant React, TypeScript et Tailwind CSS pour une expérience utilisateur moderne et réactive.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Utilisées
 
-## Expanding the ESLint configuration
+### Outils
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **ESLint**: Utilisé pour le linting du code afin d'assurer la qualité et la cohérence du code.
+- **Prettier**: Utilisé pour le formatage automatique du code.
+- **Vite**: Utilisé pour le buil.
 
-- Configure the top-level `parserOptions` property like this:
+### Bibliothèques
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- **Recharts**: Bibliothèque pour la création de graphiques réactifs.
+- **Axios**: Bibliothèque pour effectuer des requêtes HTTP.
+- **Tailwind CSS**: Utilisé pour la gestion des styles de l'application.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Architecture du Projet
+
+### Description des Composants
+
+- **CitySelector.tsx**: Composant pour sélectionner la ville pour laquelle afficher les prévisions météo.
+- **DayDetail.tsx**: Composant pour afficher les détails heure par heure des prévisions météo d'une journée spécifique.
+- **UnitToggle.tsx**: Composant pour changer l'unité de mesure des températures (Celsius ou Fahrenheit).
+- **WeatherForecast.tsx**: Composant pour afficher les prévisions météo sur 7 jours.
+
+### Gestion des Appels API
+
+**useFetchWeatherData.ts**: Hook personnalisé pour gérer les appels API et l'état de chargement et d'erreur.
+
+**api.ts**: Fichier contenant les fonctions pour effectuer les requêtes API vers l'API Open-Meteo.
+
+### Typage
+
+**types.ts**: Fichier contenant les définitions des types TypeScript utilisés dans l'application.
+
+## Axes d'Amélioration
+
+- **Recherche de Ville** :
+
+Permettre aux utilisateurs de taper le nom d'une ville dans un champ de recherche et d'obtenir automatiquement les prévisions météo pour cette ville.
+
+- **Gestion des Erreurs et des États de Chargement**
+
+Ajouter des spinners ou des indicateurs de chargement pendant que les données sont récupérées.
+
+Afficher des messages d'erreur spécifiques pour différents types d'erreurs (par exemple, problème de réseau, ville non trouvée, etc.).
+
+- **Tests Unitaires et Tests d'Intégration**
+
+Écrire des tests unitaires pour chaque composant avec `Jest`.
